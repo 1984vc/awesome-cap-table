@@ -2,6 +2,8 @@
 
 > As of 2026-09-01
 
+[Download the Excel cap table](cap-table.xlsx)
+
 ## Summary
 
 | Metric | Amount |
