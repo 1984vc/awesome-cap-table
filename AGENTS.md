@@ -4,7 +4,7 @@ This repository is an OCF 1.2.0 company snapshot. `minicap/` is the source of tr
 
 ## Install and check
 
-Install [MiniCap](https://github.com/1984vc/minicap/releases) from a release, or build it with Rust 1.88+ from its source repository:
+Build the current [MiniCap](https://github.com/1984vc/minicap) with Rust 1.88+ to regenerate this README (older release binaries may render a different report):
 
 ```bash
 git clone git@github.com:1984vc/minicap.git ../minicap-src
