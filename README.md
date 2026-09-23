@@ -1,6 +1,8 @@
 # Awesome Cap Table
 
-A starter repository for keeping your company's cap table in Git. Fork it, tell your coding agent about your company, and let [MiniCap](https://github.com/1984vc/minicap) validate the records and produce a Markdown report and Excel workbook. The `minicap/` directory holds the [OCF 1.2.0](https://open-cap-table-coalition.github.io/Open-Cap-Format-OCF/) company record.
+**Let your agent manage your cap table.**
+
+Give your agent the facts about your company. It can ask for what's missing, turn this starter into your cap table, and refresh the Markdown and Excel views as your records change.
 
 ## Make it your company's cap table
 
@@ -27,4 +29,4 @@ The starting data is fictional: two founders hold common stock, with an unalloca
 | [Current cap table (Markdown)](cap-table.md) | Current ownership, option pool, and the three outstanding SAFEs with their terms |
 | [Download the Excel cap table](cap-table.xlsx) | OCX snapshot of issued stock and plan holdings; **outstanding SAFEs are excluded** from its ownership totals |
 
-After you customize the OCF package, your agent can regenerate both linked files from your company's records.
+Your agent can regenerate both linked files as your company's records change. Under the hood, `minicap/` holds the [OCF 1.2.0](https://open-cap-table-coalition.github.io/Open-Cap-Format-OCF/) company record; [MiniCap](https://github.com/1984vc/minicap) validates it and renders the reports.
