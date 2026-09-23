@@ -1,0 +1,12 @@
+{
+  "description": "Illustrative $10 million Series A on $40 million post-money; not a recorded transaction",
+  "financing_date": "2026-10-01",
+  "as_of": "2026-09-01",
+  "currency": "USD",
+  "valuation_basis": "post_money",
+  "valuation": "40000000",
+  "investments": [
+    { "stakeholder_id": "Series A Lead", "amount": "10000000" }
+  ],
+  "target_option_pool": "0.10"
+}
