@@ -1,3 +1,4 @@
 *.xlsx
 !cap-table.xlsx
 .DS_Store
+.bin/
