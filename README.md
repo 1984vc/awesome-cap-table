@@ -1,10 +1,10 @@
 # Awesome Cap Table
 
-A fictional YC-style cap table you can inspect, fork, and make your own. The company record lives in `minicap/` as [OCF 1.2.0](https://open-cap-table-coalition.github.io/Open-Cap-Format-OCF/). [MiniCap](https://github.com/1984vc/minicap) generates the reports and workbook; your coding agent can handle that part.
+A starter repository for keeping your company's cap table in Git. Fork it, tell your coding agent about your company, and let [MiniCap](https://github.com/1984vc/minicap) validate the records and produce a Markdown report and Excel workbook. The `minicap/` directory holds the [OCF 1.2.0](https://open-cap-table-coalition.github.io/Open-Cap-Format-OCF/) company record.
 
-## Get started
+## Make it your company's cap table
 
-Clone this repository (or fork it first), then open the folder in the coding editor or coding agent of your choice:
+Fork [Awesome Cap Table](https://github.com/1984vc/awesome-cap-table/fork), clone your fork using its GitHub clone URL, and open the folder in the coding editor or coding agent of your choice. If you just want to look around first, clone the example:
 
 ```bash
 git clone git@github.com:1984vc/awesome-cap-table.git
@@ -12,13 +12,13 @@ git clone git@github.com:1984vc/awesome-cap-table.git
 
 Here's an example prompt you can give your agent:
 
-> What happens to founder ownership if we raise $10 million at a $40 million **post-money** valuation? Include the existing YC and angel SAFEs and a 10% option pool. Create or update `scenarios/series-a-10-on-40/` with the assumptions and a Markdown cap table showing ownership before and after. Don't change the recorded cap table in `minicap/`.
+> Help me turn this into my company's cap table. Read `AGENTS.md` and ask me for the company details, founders, issued shares, option pool, and any investments or SAFEs. Replace the fictional records with my real information, validate the OCF package, and update `cap-table.md` and `cap-table.xlsx`. Don't guess missing terms or share counts.
 
-The agent can follow [AGENTS.md](AGENTS.md) to set up MiniCap and work with the OCF files. If you mean **pre-money** by “10 on 40,” say so: it changes the result.
+The agent can follow [AGENTS.md](AGENTS.md) to get MiniCap and update the files. You review the facts before committing them to your fork.
 
 ## What's in the example
 
-Two founders hold common stock, with an unallocated option pool. Y Combinator has its two standard-deal SAFEs ($125,000 for a fixed 7% on conversion and $375,000 uncapped with MFN). An example investor has a $1 million SAFE at a $15 million post-money cap. No priced round has happened in the company record.
+The starting data is fictional: two founders hold common stock, with an unallocated option pool. It also includes YC's two standard-deal SAFEs ($125,000 for a fixed 7% on conversion and $375,000 uncapped with MFN) and an example $1 million SAFE at a $15 million post-money cap. These are sample records to replace, not assumptions about your company.
 
 ## View the cap table
 
@@ -26,6 +26,5 @@ Two founders hold common stock, with an unallocated option pool. Y Combinator ha
 | --- | --- |
 | [Current cap table (Markdown)](cap-table.md) | Current ownership, option pool, and the three outstanding SAFEs with their terms |
 | [Download the Excel cap table](cap-table.xlsx) | OCX snapshot of issued stock and plan holdings; **outstanding SAFEs are excluded** from its ownership totals |
-| [Scenario: $10m Series A on $40m post-money](scenarios/series-a-10-on-40/README.md) | A hypothetical round with SAFE conversions and a 10% target option pool; [view the inputs](scenarios/series-a-10-on-40/request.json) |
 
-The scenario is a calculation, not a new transaction in `minicap/`. Its new investor, financing date, and valuation belong in the scenario request, leaving the current cap table intact.
+After you customize the OCF package, your agent can regenerate both linked files from your company's records.

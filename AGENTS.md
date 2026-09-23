@@ -1,12 +1,11 @@
 # Working on this cap table
 
-This repository is an OCF 1.2.0 company snapshot. `minicap/` is the source of truth. The root `README.md` is a hand-maintained guide to the generated `cap-table.md`, `cap-table.xlsx`, and reports under `scenarios/`. Keep the example fictional.
+This repository is a forkable OCF 1.2.0 cap-table starter. `minicap/` is the source of truth. The root `README.md` introduces the template; `cap-table.md` and `cap-table.xlsx` are generated views. The checked-in company and investors are fictional and should be replaced when a founder sets up their own company.
 
 ## Get MiniCap
 
 1. Create `.bin/` in this repository; Git ignores it. Check the OS and CPU architecture. On the [MiniCap releases page](https://github.com/1984vc/minicap/releases/latest), download the archive whose filename matches that target (for example, `x86_64-unknown-linux-gnu` or `aarch64-apple-darwin`) into `.bin/`. Download its matching `.sha256` file there too if you want to verify the archive. Do not assume every target is in every release.
 2. Extract `minicap` (or `minicap.exe` on Windows) from the archive so the binary is at `.bin/minicap` (or `.bin/minicap.exe`). Run `.bin/minicap --help` on Linux/macOS or `.\.bin\minicap.exe --help` on Windows to check it works. The `scripts/update-exports.sh` script uses that local binary automatically; there is no need to edit `PATH`. Run the script with a POSIX shell (or Git Bash on Windows).
-3. If your platform has no binary, build [MiniCap](https://github.com/1984vc/minicap) from source with Rust 1.88+ and put the resulting binary in `.bin/`. A release older than the current source may render Markdown differently from the checked-in reports; if regeneration changes reports without changed inputs, use a current source build before committing them.
 
 From this repository's root, run `.bin/minicap validate` after every change (use `.bin/minicap.exe` on Windows). Use `.bin/minicap report` to inspect current ownership and outstanding SAFEs. The checked-in `cap-table.xlsx` is the downloadable **current snapshot**; it does not include outstanding SAFEs in its totals. Do not commit other generated `.xlsx` files.
 
@@ -18,15 +17,15 @@ From this repository's root, run `.bin/minicap validate` after every change (use
 
 Use the handbook for explanations and founder questions; use MiniCap and this repository's OCF package for the actual ownership numbers.
 
-## Refresh the generated files
+## Set up a new company
 
-After changing the OCF snapshot or a scenario, run `./scripts/update-exports.sh` from this repository's root. It validates the package, writes the current report to `cap-table.md`, exports `cap-table.xlsx`, and regenerates a modeled Markdown report as `README.md` in each scenario folder. Commit the generated files with the inputs; keep the root README's links and descriptions current.
+1. Ask the founder for their actual issuer name, formation and reporting dates, stakeholders, stock classes and authorized shares, issued shares, option plan reserves and grants, and each investment or SAFE with its amount and conversion terms. Ask for source records where available. Do not invent missing numbers.
+2. Replace the fictional issuer in `minicap/Manifest.ocf.json`, the people and investors in `Stakeholders.ocf.json`, the classes and plans in `StockClasses.ocf.json` and `StockPlans.ocf.json`, and the example issuances and SAFEs in `Transactions.ocf.json`. Remove YC and the example angel unless they are real investors in this company. Keep IDs and references consistent. The sample history may be replaced during initial setup; after the real company record is established, add new transactions rather than rewriting its history.
+3. Update the manifest MD5 for every changed referenced OCF file (for example, `md5sum minicap/Transactions.ocf.json` for `Transactions.ocf.json`). These checksums cover the exact file bytes. Run `./scripts/update-exports.sh` to validate the package and regenerate `cap-table.md` and `cap-table.xlsx`. Compare the outputs with the founder's records before committing them.
+4. Change the root README's sample description and file captions to describe your company, while preserving its links to the generated report and workbook.
 
-## Editing the snapshot
+## Maintain the cap table
 
-- Keep the manifest's `ocf_version` at `1.2.0` and preserve globally unique object and security IDs. Add new transactions instead of rewriting past transactions when recording later events.
-- YC's example investment follows [its published standard deal](https://www.ycombinator.com/deal): **two separate SAFEs**, $125,000 for a fixed 7% on conversion and $375,000 uncapped with MFN. The other investor's $1,000,000 SAFE has a $15,000,000 post-money cap and no discount. Do not turn these into issued stock until a conversion is explicitly recorded.
-- The example does not encode YC's separate agreement or pro-rata rights. Do not imply that `minicap report` or the spreadsheet includes future SAFE ownership before a financing is modeled.
-- When changing any referenced `*.ocf.json` file, compute its MD5 (for example, `md5sum minicap/Transactions.ocf.json`) and replace that file's `md5` entry in `minicap/Manifest.ocf.json`. The checksum covers the exact bytes, including whitespace. Then run `./scripts/update-exports.sh` to validate and refresh the reports.
-- Model a hypothetical financing in `scenarios/<name>/request.json`. Set `valuation_basis` explicitly to `pre_money` or `post_money`; include `as_of`, `financing_date`, `currency`, `valuation`, `investments`, and any `target_option_pool`. Do not add hypothetical investors or round transactions to `minicap/`. For example, “$10m on $40m” must say which valuation basis it means.
-- Check the generated `cap-table.md` and scenario reports for ownership and SAFE terms, and open the exported workbook, before committing them with the OCF or scenario inputs.
+- Keep `ocf_version` at `1.2.0` and object and security IDs unique. Preserve real historical transactions; add new dated transactions for later events.
+- For every later OCF edit, refresh the referenced file's manifest MD5 and run `./scripts/update-exports.sh`. Commit the OCF data and both generated outputs together.
+- Outstanding SAFEs have no issued shares yet. The Markdown report lists them separately; the current OCX workbook does not include them in ownership totals.
