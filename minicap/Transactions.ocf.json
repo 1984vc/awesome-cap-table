@@ -1,0 +1,122 @@
+{
+  "file_type": "OCF_TRANSACTIONS_FILE",
+  "items": [
+    {
+      "object_type": "TX_STOCK_ISSUANCE",
+      "id": "tx-alex-stock",
+      "security_id": "security-alex-stock",
+      "custom_id": "CS-1",
+      "date": "2026-01-15",
+      "stakeholder_id": "founder-alex",
+      "stock_class_id": "common",
+      "quantity": "4500000",
+      "share_price": { "amount": "0", "currency": "USD" },
+      "stock_legend_ids": [],
+      "security_law_exemptions": []
+    },
+    {
+      "object_type": "TX_STOCK_ISSUANCE",
+      "id": "tx-sam-stock",
+      "security_id": "security-sam-stock",
+      "custom_id": "CS-2",
+      "date": "2026-01-15",
+      "stakeholder_id": "founder-sam",
+      "stock_class_id": "common",
+      "quantity": "4500000",
+      "share_price": { "amount": "0", "currency": "USD" },
+      "stock_legend_ids": [],
+      "security_law_exemptions": []
+    },
+    {
+      "object_type": "TX_STOCK_PLAN_POOL_ADJUSTMENT",
+      "id": "tx-initial-pool",
+      "date": "2026-01-15",
+      "stock_plan_id": "employee-plan",
+      "shares_reserved": "1000000"
+    },
+    {
+      "object_type": "TX_CONVERTIBLE_ISSUANCE",
+      "id": "tx-yc-seven-percent",
+      "security_id": "safe-yc-seven-percent",
+      "custom_id": "SAFE-1",
+      "date": "2026-02-01",
+      "stakeholder_id": "yc",
+      "convertible_type": "SAFE",
+      "investment_amount": { "amount": "125000", "currency": "USD" },
+      "seniority": 1,
+      "security_law_exemptions": [],
+      "conversion_triggers": [
+        {
+          "type": "AUTOMATIC_ON_CONDITION",
+          "trigger_id": "yc-seven-percent-financing",
+          "trigger_condition": "next qualified financing",
+          "conversion_right": {
+            "type": "CONVERTIBLE_CONVERSION_RIGHT",
+            "converts_to_future_round": true,
+            "conversion_mechanism": {
+              "type": "FIXED_PERCENT_OF_CAPITALIZATION_CONVERSION",
+              "converts_to_percent": "0.07"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "object_type": "TX_CONVERTIBLE_ISSUANCE",
+      "id": "tx-yc-mfn",
+      "security_id": "safe-yc-mfn",
+      "custom_id": "SAFE-2",
+      "date": "2026-02-01",
+      "stakeholder_id": "yc",
+      "convertible_type": "SAFE",
+      "investment_amount": { "amount": "375000", "currency": "USD" },
+      "seniority": 1,
+      "security_law_exemptions": [],
+      "conversion_triggers": [
+        {
+          "type": "AUTOMATIC_ON_CONDITION",
+          "trigger_id": "yc-mfn-financing",
+          "trigger_condition": "next qualified financing",
+          "conversion_right": {
+            "type": "CONVERTIBLE_CONVERSION_RIGHT",
+            "converts_to_future_round": true,
+            "conversion_mechanism": {
+              "type": "SAFE_CONVERSION",
+              "conversion_timing": "POST_MONEY",
+              "conversion_mfn": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "object_type": "TX_CONVERTIBLE_ISSUANCE",
+      "id": "tx-angel-safe",
+      "security_id": "safe-angel",
+      "custom_id": "SAFE-3",
+      "date": "2026-06-01",
+      "stakeholder_id": "example-angel",
+      "convertible_type": "SAFE",
+      "investment_amount": { "amount": "1000000", "currency": "USD" },
+      "seniority": 1,
+      "security_law_exemptions": [],
+      "conversion_triggers": [
+        {
+          "type": "AUTOMATIC_ON_CONDITION",
+          "trigger_id": "angel-financing",
+          "trigger_condition": "next qualified financing",
+          "conversion_right": {
+            "type": "CONVERTIBLE_CONVERSION_RIGHT",
+            "converts_to_future_round": true,
+            "conversion_mechanism": {
+              "type": "SAFE_CONVERSION",
+              "conversion_timing": "POST_MONEY",
+              "conversion_mfn": false,
+              "conversion_valuation_cap": { "amount": "15000000", "currency": "USD" }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

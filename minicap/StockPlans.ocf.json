@@ -1,0 +1,12 @@
+{
+  "file_type": "OCF_STOCK_PLANS_FILE",
+  "items": [
+    {
+      "object_type": "STOCK_PLAN",
+      "id": "employee-plan",
+      "plan_name": "Example Employee Option Plan",
+      "initial_shares_reserved": "1000000",
+      "stock_class_ids": ["common"]
+    }
+  ]
+}

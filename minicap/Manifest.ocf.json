@@ -1,0 +1,31 @@
+{
+  "ocf_version": "1.2.0",
+  "file_type": "OCF_MANIFEST_FILE",
+  "as_of": "2026-09-01",
+  "generated_at": "2026-09-23T00:00:00Z",
+  "issuer": {
+    "object_type": "ISSUER",
+    "id": "example-startup",
+    "legal_name": "Example Startup, Inc.",
+    "formation_date": "2026-01-01",
+    "country_of_formation": "US"
+  },
+  "stakeholders_files": [
+    { "filepath": "./Stakeholders.ocf.json", "md5": "f32eeb3f226b824a6fc05d4c0764125e" }
+  ],
+  "stock_classes_files": [
+    { "filepath": "./StockClasses.ocf.json", "md5": "f9c24a6a88f9ac752edac9ecacb3626a" }
+  ],
+  "stock_plans_files": [
+    { "filepath": "./StockPlans.ocf.json", "md5": "cf9cf5c028e2efad3ac2ade470e57fd4" }
+  ],
+  "financings_files": [
+    { "filepath": "./Financings.ocf.json", "md5": "a6c8fbd4e8e9062683b4726202888fe2" }
+  ],
+  "transactions_files": [
+    { "filepath": "./Transactions.ocf.json", "md5": "948e905ddebe717b995c9fcbbb7ba02a" }
+  ],
+  "stock_legend_templates_files": [],
+  "vesting_terms_files": [],
+  "valuations_files": []
+}

@@ -1,0 +1,29 @@
+{
+  "file_type": "OCF_STAKEHOLDERS_FILE",
+  "items": [
+    {
+      "object_type": "STAKEHOLDER",
+      "id": "founder-alex",
+      "name": { "legal_name": "Alex Founder" },
+      "stakeholder_type": "INDIVIDUAL"
+    },
+    {
+      "object_type": "STAKEHOLDER",
+      "id": "founder-sam",
+      "name": { "legal_name": "Sam Founder" },
+      "stakeholder_type": "INDIVIDUAL"
+    },
+    {
+      "object_type": "STAKEHOLDER",
+      "id": "yc",
+      "name": { "legal_name": "Y Combinator" },
+      "stakeholder_type": "INSTITUTION"
+    },
+    {
+      "object_type": "STAKEHOLDER",
+      "id": "example-angel",
+      "name": { "legal_name": "Example Angel Fund" },
+      "stakeholder_type": "INSTITUTION"
+    }
+  ]
+}
